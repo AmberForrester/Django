@@ -4,6 +4,13 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Member # Import the Member model
 
+# View custom 404 page during development (with DEBUG=True), needing to manually raise a 404 error (Http404 exception) in a view.
+# Manually testing the 404 page, by simulating a 404 error in one of your views to test the custom 404 error page. 
+from django.http import Http404
+
+def test_404_view(request):
+    raise Http404('Sorry, this page does not exist.')
+
 
 # The Tennis Club Members List view - 
 def members(request):
