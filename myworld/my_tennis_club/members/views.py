@@ -35,3 +35,13 @@ def details(request, id): # Get an id as an argument.
 def main(request):
     template = loader.get_template('main.html') # Load the main.html template.
     return HttpResponse(template.render()) # Outputs the HTML rendered by template.
+
+
+
+# Add a Testing View -
+def testing(request):
+    template = loader.get_template('template.html')
+    context = {
+        'teamname': ['Elites', 'Newbies', 'Warriors'],
+    }
+    return HttpResponse(template.render(context, request))
