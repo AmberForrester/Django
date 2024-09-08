@@ -2,12 +2,16 @@
 <html>
 <body>
 
-    <h1> Tennis Club Team Names </h1>
-{% for x in teamname %}
-  <h2>{{ x }}</h2>
-{% endfor %}
+    <h1> Tennis Club Members </h1>
 
-<p>In views.py you can see what the Team Name variable looks like.</p>
+<ul>
+{% for x in mymembers %}
+  <li>{{ x.firstname }}</li>
+{% endfor %}
+</ul>
+
+{% comment %} <p>In views.py you can see what the Team Name variable looks like.</p> {% endcomment %}
+<p>In members/views.py you can see how to import and fetch members from the database.</p>
 <br/>
 
 <p>Click here to go back<a href='/'> HOME</a>.</p>

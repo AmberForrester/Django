@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting == 1 %}
+  <h1>Hello</h1>
+{% endif %}
+
+<p>In views.py you can see what the greeting variable looks like.</p>
+
+</body>
+</html> 
+
+<!-- An if statement evaluates a variable and executes a block of code if the value is true. -->
+
+
+
+<!-- The elif keyword says "if the previous conditions were not true, then try this condition". -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting == 1 %}
+  <h1>Hello</h1>
+{% elif greeting == 2 %}
+  <h1>Welcome</h1>
+{% endif %} 
+
+<p>In views.py you can see what the greeting variable looks like.</p>
+
+</body>
+</html> 
+
+
+
+<!-- The else keyword catches anything which isn't caught by the preceding conditions. -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting == 1 %}
+  <h1>Hello</h1>
+{% elif greeting == 2 %}
+  <h1>Welcome</h1>
+{% else %}
+  <h1>Goodbye</h1>
+{% endif %}  
+
+<p>In views.py you can see what the greeting variable looks like.</p>
+
+</body>
+</html> 
