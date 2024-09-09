@@ -1,3 +1,5 @@
+# View in browser: 127.0.0.1:8000/testing
+
 from django.http import HttpResponse
 from django.template import loader
 

@@ -1,4 +1,9 @@
-<!-- == Operator:  -->
+<!-- Operators -->
+
+<!-- == 
+        used to check if a variable is equal to a value
+        checks the VALUES OF THE TWO OBJECTS
+        is equal to -->
 <!DOCTYPE html>
 <html>
 <body>
@@ -10,3 +15,161 @@
 </body>
 </html>  
 
+
+
+<!-- != 
+        not equal to -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting != 1 %}
+  <h1>Hello</h1>
+{% endif %}  
+
+</body>
+</html> 
+
+
+
+<!-- < 
+        is less than -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting < 3 %}
+  <h1>Hello</h1>
+{% endif %}  
+
+</body>
+</html>
+
+
+
+<!-- <= 
+        is less than or equal to -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting <= 3 %}
+  <h1>Hello</h1>
+{% endif %}  
+
+</body>
+</html>
+
+
+
+<!-- >= 
+        is greater than or equal to -->
+<!DOCTYPE html>
+<html>
+<body>
+        
+{% if greeting >= 1 %}
+  <h1>Hello</h1>
+{% endif %}  
+        
+</body>
+</html>
+
+
+
+<!-- and
+        check if more than one condition is true -->
+<!DOCTYPE html>
+<html>
+<body>
+        
+  {% if greeting == 1 and day == "Friday" %}
+  <h1>Hello Weekend!</h1>
+  {% endif %}  
+        
+</body>
+</html>
+
+
+
+<!-- or
+        check if one of the conditions is true -->
+<!DOCTYPE html>
+<html>
+<body>
+        
+{% if greeting == 1 or greeting == 5 %}
+  <h1>Hello</h1>
+{% endif %}  
+
+</body>
+</html> 
+
+
+
+<!-- Combine and/or
+                Parentheses are not allowed in if statements in Django, so when you combine and and or operators, it is important to know that parentheses are added for and but not for or  -->
+{% if (greeting == 1 and day == "Friday") or greeting == 5 %}
+  <h1>Hello Weekend!</h1>
+{% endif %}  
+
+
+
+<!-- in 
+        check if certain item is present in an object -->
+{% if 'Banana' in fruits %}
+  <h1>Hello</h1>
+{% else %}
+  <h1>Goodbye</h1>
+{% endif %} 
+
+<!-- not in
+            checks if a certain item is NOT present in object. -->
+
+
+<!-- is 
+        checks if TWO OBJECTS are the SAME
+        checking the identity of two objects
+In the view we have two objects, x and y with the same values
+
+views.py 
+from django.http import HttpResponse
+from django.template import loader
+
+def testing(request):
+  template = loader.get_template('template.html')
+  context = {
+    'x': ['Apple', 'Banana', 'Cherry'], 
+    'y': ['Apple', 'Banana', 'Cherry'], 
+  }
+  return HttpResponse(template.render(context, request))  
+
+The two objects above have the same values, but NOT the same objects x,y 
+-->
+{% if x is y %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %}
+
+<!-- How can two objects be the same? 
+ 
+    If you have two objects that points to the same object, then the is operator evaluates to true.
+    
+    By using the {% with %} tag, which allows us to create variables in the template -->
+{% with var1=x var2=x %}
+
+{% if var1 is var2 %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %}
+{% endwith %}
+
+<!-- is not
+            checks if two OBJECTS are NOT the same. -->
+{% if x is not y %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %} 
