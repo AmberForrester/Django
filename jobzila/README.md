@@ -5,16 +5,30 @@
 <div align='center'>
 
 <img src='/assets/images/main_readme.png' alt='Home page of JobZila'>
-Welcome to JobZila, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's framework.</div>
+Welcome to JobZila, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's framework.
+
+<br /> Are you ready to be inspired?
+
+<a href='https://github.com/AmberForrester/Django/tree/main/jobzila'><strong>Source Code »</strong></a>
+<br />
+</div>
+
 
 
 ## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+<br />
 
 
 
@@ -34,6 +48,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 - Python 3.x
 - Django 4.x (or latest)
 - Virtual Environment (optional but recommended)
+
 
 
 ### Step-by-Step Instructions
