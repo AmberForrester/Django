@@ -26,7 +26,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
----
+
 
 ## Installation
 
@@ -83,7 +83,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
----
+
 
 ## Usage
 
@@ -116,7 +116,7 @@ To bulk import job listings from a JSON file, follow these steps:
     ```
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
----
+
 
 ## Project Structure
 
@@ -124,7 +124,7 @@ To bulk import job listings from a JSON file, follow these steps:
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
----
+
 
 ## Contributing
 
