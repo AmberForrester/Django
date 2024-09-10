@@ -24,6 +24,7 @@ body {
   color: #333;
 }
 
+/* Header and navigation styling */
 header,
 nav,
 section,
@@ -46,11 +47,18 @@ nav {
   background-color: #ff8500;
   color: #fff;
   padding: 10px;
+  display: flex; /* Use flexbox to manage layout */
+  justify-content: space-between; /* Distribute space between left and right content */
+  align-items: center; /* Vertically align items in the middle */
 }
 
+/* Styles for the left side of the navbar */
 nav ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
+
 nav ul li {
   display: inline;
   margin-right: 20px;
@@ -59,6 +67,27 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
+}
+
+/* New: Style for the right-aligned Login/Logout button */
+.navbar-right {
+  margin-left: auto !important; /* Forces it to move to the right */
+}
+
+.navbar-right li {
+  display: inline !important; /* Ensure the list items are inline */
+}
+
+.navbar-right a {
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 10px 20px !important;
+  background-color: #007bff !important; /* Optional: Button-like appearance */
+  border-radius: 5px !important;
+}
+
+.navbar-right a:hover {
+  background-color: #0056b3 !important;
 }
 
 footer {
@@ -285,4 +314,44 @@ main {
   padding: 20px;
   border-radius: 5px;
 }
-/* Add Job Form CSS Start*/
+/* Add Job Form CSS Finished*/
+
+/* Blog CSS Start*/
+
+#blog-section {
+  padding: 20px;
+}
+
+#blog-section h2 {
+  margin-bottom: 10px;
+}
+
+#blog-form {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+#blog-form input,
+#blog-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  resize: vertical;
+}
+
+#blog-form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 50px;
+  border: none;
+}
+.form-div {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+/* Blog CSS Finished*/

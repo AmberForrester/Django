@@ -1,0 +1,22 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="icon" href="{% static 'favicon/listing.png' %}" type="image/png">
+{% endblock %}
+
+{% block content %}
+<h2>Blogs</h2>
+<ul>
+  {% for blog in blogs %}
+    <li>
+      <a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a>
+      <p>By {{ blog.author }} on {{ blog.created_at }}</p>
+    </li>
+  {% empty %}
+    <p>No blogs found.</p>
+  {% endfor %}
+</ul>
+{% endblock %}

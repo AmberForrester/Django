@@ -1,0 +1,17 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Add Blog{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="icon" href="{% static '/favicon/index.png' %}" type="image/png">
+{% endblock %}
+
+{% block content %}
+<h2>Add a Blog</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Blog</button>
+</form>
+{% endblock %}

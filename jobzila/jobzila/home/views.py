@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Job
+from .models import Job, Blog
+from .forms import BlogForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -77,3 +79,28 @@ def job_search(request):
         'category': category,
         'search': search  # Pass this to the template to control result display
     })
+
+# View to display a list of all blogs:
+def blog_list(request):
+    blogs = Blog.objects.all().order_by('-created_at')
+    return render(request, 'home/blog_list.html', {'blogs': blogs})
+
+# View to display a specific blog post by its ID:
+def blog_detail(request, blog_id):
+    blog = get_object_or_404(Blog, id=blog_id)
+    return render(request, 'home/blog_detail.html', {'blog': blog})
+
+# View to add a new blog (for admin):
+@login_required
+def add_blog(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.author = request.user
+            blog.save()
+            return redirect('blog_list')
+    
+    else: 
+        form = BlogForm()
+    return render(request, 'home/add_blog.html', {'form': form})
