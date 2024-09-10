@@ -117,8 +117,7 @@ To bulk import job listings from a JSON file, follow these steps:
     "location": "Toronto, ON",
     "description": "We are seeking a talented Front-end Developer...",
     "apply_link": "https://example.com/apply"
-        }]    
-  // Add more jobs...
+        }]   // Add more jobs...  
     ```
 
 2. **Run the Import Command:** Place the JSON file in the project root directory and run:
