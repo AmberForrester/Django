@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jobzila{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+    <header>
+      <h1>Job Zila</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'homepage' %}">Home</a></li>
+          <li><a href="#">Job Search</a></li>
+          <li><a href="{% url 'job_listings'%}">Job Listings</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Page-specific content will go here -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2024 My Job Board. All rights reserved. |
+        <a href="{% url 'contact_us' %}">Contact Us</a> | 
+        <a href="#">Terms</a> | 
+        <a href="#">Privacy</a>
+      </p>
+    </footer>
+
+  </body>
+</html>

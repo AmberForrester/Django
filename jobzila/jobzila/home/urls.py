@@ -7,4 +7,7 @@ urlpatterns = [
     
     #2nd step - Create the URL route for the contact us page. So when users visit http://127.0.0.1:8000/contact/ they are directed to the contact us page.
     path('contact/', views.contact_us, name='contact_us'),
+    
+    # Define a URL route to serve the job listings page. 
+    path('jobs/', views.job_listings, name='job_listings'),
 ]

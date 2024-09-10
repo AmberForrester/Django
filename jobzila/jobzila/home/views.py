@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Job
 
 # Create your views here.
 
@@ -25,3 +26,8 @@ def contact_us(request):
         return HttpResponse(f'Thanks for reaching out, {name}! We will get back to you within 24 hours.')
     
     return render(request, 'home/contactus.html')
+
+# Create a view that fetches the job listigs from the DB and passes them to a template:
+def job_listings(request):
+    jobs = Job.objects.all() # Fetch all jobs from the DB
+    return render(request, 'home/joblistings.html', {'jobs': jobs})

@@ -1,31 +1,13 @@
+{% extends 'home/master.html' %}
 {% comment %} 3rd Step - Create the contactus.html template, inside your home/templates/home/ directory {% endcomment %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    
-    <header>
-      <h1>Contact Us</h1>
 
-      <nav>
-        <ul>
-          <li><a href="{% url 'homepage' %}">Home</a></li>
-          <li><a href="#">Job Search</a></li>
-          <li><a href="#">Job Listing</a></li>
-          <li><a href="#">Job Listing Json</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
 
     <main>
       <section id="contact-form-section">
@@ -46,11 +28,4 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        &copy; 2024 My Job Board. All rights reserved. |
-        <a href="{% url 'contact_us' %}">Contact Us</a> | <a href="#">Terms</a> | <a href="#">Privacy</a>
-      </p>
-    </footer>
-  </body>
-</html>
+{% endblock %}
