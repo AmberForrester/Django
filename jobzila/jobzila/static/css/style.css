@@ -47,7 +47,7 @@ nav {
   background-color: #ff8500;
   color: #fff;
   padding: 10px;
-  display: flex; /* Use flexbox to manage layout */
+  display: flex !important; /* Use flexbox to manage layout */
   justify-content: space-between; /* Distribute space between left and right content */
   align-items: center; /* Vertically align items in the middle */
 }
@@ -348,10 +348,11 @@ main {
   margin-top: 50px;
   border: none;
 }
+
 .form-div {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
 }
-/* Blog CSS Finished*/
+/* Blog CSS Finished */
