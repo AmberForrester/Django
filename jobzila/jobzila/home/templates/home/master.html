@@ -16,8 +16,8 @@
           <li><a href="{% url 'homepage' %}">Home</a></li>
           <li><a href="#">Job Search</a></li>
           <li><a href="{% url 'job_listings'%}">Job Listings</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="{% url 'terms'%}">Terms of Service</a></li>
+          <li><a href="{% url 'privacy'%}">Privacy Policy</a></li>
           <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
         </ul>
       </nav>
@@ -33,8 +33,8 @@
       <p>
         &copy; 2024 My Job Board. All rights reserved. |
         <a href="{% url 'contact_us' %}">Contact Us</a> | 
-        <a href="#">Terms</a> | 
-        <a href="#">Privacy</a>
+        <a href="{% url 'terms'%}">Terms</a> | 
+        <a href="{% url 'privacy'%}">Privacy</a>
       </p>
     </footer>
 

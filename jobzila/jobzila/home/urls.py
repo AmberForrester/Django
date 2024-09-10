@@ -10,4 +10,6 @@ urlpatterns = [
     
     # Define a URL route to serve the job listings page. 
     path('jobs/', views.job_listings, name='job_listings'),
+    path('terms/', views.terms, name='terms'),
+    path('privacy', views.privacy, name='privacy'),
 ]

@@ -31,3 +31,9 @@ def contact_us(request):
 def job_listings(request):
     jobs = Job.objects.all() # Fetch all jobs from the DB
     return render(request, 'home/joblistings.html', {'jobs': jobs})
+
+def terms(request):
+    return render(request, 'home/terms.html')
+
+def privacy(request):
+    return render(request, 'home/privacy.html')
