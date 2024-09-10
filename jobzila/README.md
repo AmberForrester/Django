@@ -2,7 +2,7 @@
 
 <h1 align='center'>JobZila | Job Search Application :briefcase:</h1>
 
-<div align='center'>Welcome to **JobZila**, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's MVC framework.</div>
+<div align='center'>Welcome to JobZila, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's framework.</div>
 
 
 ## Table of Contents
@@ -117,7 +117,7 @@ To bulk import job listings from a JSON file, follow these steps:
 
 ## Project Structure
 
-Insert picture here. 
+![Project Structure](assets/images/project_structure.png)
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
