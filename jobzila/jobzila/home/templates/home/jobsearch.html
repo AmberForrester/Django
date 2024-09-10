@@ -1,0 +1,64 @@
+{% extends 'home/master.html' %}
+
+{% block title %}
+Job Search
+{% endblock %}
+
+{% block content %}
+<main>
+  <section id="job-search-section" class="container">
+    <h2>Find Your Dream Job</h2>
+
+    <div class="find-job-div">
+      <form id="search-form" action="{% url 'job_search' %}" method="GET">
+        <input
+          type="text"
+          name="keywords"
+          id="keywords"
+          placeholder="Keywords"
+          value="{{ request.GET.keywords|default:'' }}" required/>
+
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="Location"
+          value="{{ request.GET.location|default:'' }}"/>
+
+        <select name="category" id="category">
+          <option value="">All Categories</option>
+          <option value="it" {% if request.GET.category == "it" %}selected{% endif %}>IT</option>
+          <option value="finance" {% if request.GET.category == "finance" %}selected{% endif %}>Finance</option>
+          <option value="marketing" {% if request.GET.category == "marketing" %}selected{% endif %}>Marketing</option>
+          <option value="data" {% if request.GET.category == "marketing" %}selected{% endif %}>Data</option>
+          <option value="UI/UX" {% if request.GET.category == "marketing" %}selected{% endif %}>UI/UX</option>
+          <!-- Add more categories as needed -->
+        </select>
+        <input type="submit" value="Search Jobs" />
+      </form>
+    </div>
+  </section>
+
+  <!-- Displaying search results dynamically -->
+  <section id="job-results-section">
+    {% if search %}
+      {% if jobs %}
+        <h3>Search Results:</h3>
+        <div id="job-listings-container">
+          {% for job in jobs %}
+            <div class="job-listing">
+              <h4>{{ job.title }}</h4>
+              <p><strong>Company:</strong> {{ job.company }}</p>
+              <p><strong>Location:</strong> {{ job.location }}</p>
+              <p><strong>Description:</strong> {{ job.description }}</p>
+              <a href="{{ job.apply_link }}" target="_blank">Apply Now</a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>Sorry, no job listings found. Please try another search. </p>
+      {% endif %}
+    {% endif %}
+  </section>
+</main>
+{% endblock %}

@@ -12,4 +12,5 @@ urlpatterns = [
     path('jobs/', views.job_listings, name='job_listings'),
     path('terms/', views.terms, name='terms'),
     path('privacy', views.privacy, name='privacy'),
+    path('jobsearch', views.job_search, name='job_search')
 ]

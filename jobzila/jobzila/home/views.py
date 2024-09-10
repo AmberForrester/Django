@@ -29,7 +29,7 @@ def contact_us(request):
 
 # Create a view that fetches the job listigs from the DB and passes them to a template:
 def job_listings(request):
-    jobs = Job.objects.all() # Fetch all jobs from the DB
+    jobs = Job.objects.all() # Fetch all jobs from the DB.
     return render(request, 'home/joblistings.html', {'jobs': jobs})
 
 def terms(request):
@@ -37,3 +37,43 @@ def terms(request):
 
 def privacy(request):
     return render(request, 'home/privacy.html')
+
+# Create a view function to render job searches.
+# Jobs are filtered based on the provided keyword and location. 
+def job_search(request):
+    
+    # Get the search parameters for keywords, location, and category:
+    keywords = request.GET.get('keywords', '').strip()
+    location = request.GET.get('location', '').strip()
+    category = request.GET.get('category', '').strip()
+    
+    # Initialize an empty list for jobs:
+    jobs = []
+    
+    # Check if a search query has been made( when keywords, location, or category is provided)
+    search = any([keywords, location, category])
+    
+    if search:
+        # Build the job filter based on the search query:
+        jobs = Job.objects.all()
+        
+        # Filter by keywords in title or description, if provided
+        if keywords:
+            jobs = jobs.filter(title__icontains=keywords) | jobs.filter(description__icontains=keywords)
+            
+        # Filter by location, if provided
+        if location:
+            jobs = jobs.filter(location__icontains=location)
+
+        # Filter by category, if provided
+        if category:
+            jobs = jobs.filter(category__icontains=category)
+
+     # Render the jobsearch.html template and pass the jobs and search parameters
+    return render(request, 'home/jobsearch.html', {
+        'jobs': jobs,
+        'keywords': keywords,
+        'location': location,
+        'category': category,
+        'search': search  # Pass this to the template to control result display
+    })
