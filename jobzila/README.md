@@ -130,7 +130,7 @@ To bulk import job listings from a JSON file, follow these steps:
 
 ## Project Structure
 
-![Project Structure](/assets/images/project_structure.png)
+![Project Structure](/assets/images/project_struct.png)
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
