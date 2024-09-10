@@ -1,0 +1,56 @@
+{% comment %} 3rd Step - Create the contactus.html template, inside your home/templates/home/ directory {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+    <header>
+      <h1>Contact Us</h1>
+
+      <nav>
+        <ul>
+          <li><a href="{% url 'homepage' %}">Home</a></li>
+          <li><a href="#">Job Search</a></li>
+          <li><a href="#">Job Listing</a></li>
+          <li><a href="#">Job Listing Json</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="contact-form-section">
+        <h2>Contact Form</h2>
+        <div class="form-div">
+          <form id="contact-form" action="" method="post">
+
+            {% csrf_token %} {% comment %} Django security token for forms {% endcomment %}
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2024 My Job Board. All rights reserved. |
+        <a href="{% url 'contact_us' %}">Contact Us</a> | <a href="#">Terms</a> | <a href="#">Privacy</a>
+      </p>
+    </footer>
+  </body>
+</html>
