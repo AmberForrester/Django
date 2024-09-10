@@ -9,7 +9,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 <br /> Are you ready to be inspired?
 
-<a href='https://github.com/AmberForrester/jobzila'><strong>Source Code »</strong></a>
+<a href='https://github.com/AmberForrester/Django/tree/main/jobzila'><strong>Source Code »</strong></a>
 <br />
 </div>
 
