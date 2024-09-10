@@ -110,14 +110,14 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 To bulk import job listings from a JSON file, follow these steps:
 1. **Create the JSON File** (e.g., joblistings.json):
-    ```json
-  {
+    ```
+    [{
     "title": "Front-end Developer",
     "company": "ABC Company",
     "location": "Toronto, ON",
     "description": "We are seeking a talented Front-end Developer...",
     "apply_link": "https://example.com/apply"
-  }
+        }]    
   // Add more jobs...
     ```
 
