@@ -4,6 +4,11 @@
 Job Search
 {% endblock %}
 
+{% block extra_head %}
+{% load static %}
+<link rel="icon" href="{% static 'favicon/listing.png' %}" type="image/png">
+{% endblock %}
+
 {% block content %}
 <main>
   <section id="job-search-section" class="container">

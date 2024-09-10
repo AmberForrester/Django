@@ -4,8 +4,10 @@
 Job Listings
 {% endblock %}
 
+{% block extra_head %}
 {% load static %}
-<link rel="stylesheet" href="{% static '' %}">v
+<link rel="icon" href="{% static 'favicon/listing.png' %}" type="image/png">
+{% endblock %}
 
 {% block content %}
 <main>

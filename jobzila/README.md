@@ -2,7 +2,10 @@
 
 <h1 align='center'>JobZila | Job Search Application :briefcase:</h1>
 
-<div align='center'>Welcome to JobZila, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's framework.</div>
+<div align='center'>
+
+<img src='/assets/images/main_readme.png' alt='Home page of JobZila'>
+Welcome to JobZila, a Django-based job search application where users can search for job listings based on keywords, location, and category. This project was built as a demonstration of how to create a fully functional job search engine using Django's framework.</div>
 
 
 ## Table of Contents

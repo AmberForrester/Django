@@ -4,10 +4,12 @@
 JobZila
 {% endblock %}
 
-
+{% block extra_head %}
+{% load static %}
+<link rel="icon" href="{% static '/favicon/index.png' %}" type="image/png">
+{% endblock %}
 
 {% block content%}
-
     <main>
       <section id="hero">
         <section id="hero-section">
@@ -23,5 +25,4 @@ JobZila
         </section>
       </section>
     </main>
-
 {% endblock %}

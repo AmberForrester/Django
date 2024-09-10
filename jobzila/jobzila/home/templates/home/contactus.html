@@ -2,9 +2,13 @@
 {% comment %} 3rd Step - Create the contactus.html template, inside your home/templates/home/ directory {% endcomment %}
 
 
-
 {% block title %}
 Contact Us
+{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="icon" href="{% static 'favicon/contact.png' %}" type="image/png">
 {% endblock %}
 
 {% block content %}
