@@ -102,3 +102,4 @@ def add_blog(request):
     else: 
         form = BlogForm()
     return render(request, 'home/add_blog.html', {'form': form})
+
