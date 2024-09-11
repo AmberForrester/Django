@@ -8,21 +8,27 @@
 {% endblock %}
 
 {% block content %}
-<section id="blog-section"
-class="container">
+<main>
+<section id="blog-listings" class="container"> <!-- Use 'container' class for consistent layout -->
+
   <h2>Blogs</h2>
 
   <div id="blog-listings-container">
-  <ul>
+    
     {% for blog in blogs %}
-      <li>
-        <a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a>
-        <p>By {{ blog.author }} on {{ blog.created_at }}</p>
-      </li>
-  </div>    
+      <div class="blog-listing">
+        <h3>{{ blog.title }}</h3>
+        <p><strong>By {{ blog.author }}</strong> on {{ blog.created_at }}</p>
+        <p>{{ blog.excerpt }}</p> <!-- Blog excerpt or introduction -->
+        <a href="{% url 'blog_detail' blog.id %}">Read More</a>
+      </div>
+
     {% empty %}
       <p>No blogs found.</p>
     {% endfor %}
-  </ul>
+    
+  </div>
+
 </section>
+</main>
 {% endblock %}

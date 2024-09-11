@@ -38,7 +38,7 @@
           <li>
             <form method="POST" action="{% url 'logout' %}" style="display: inline;">
               {% csrf_token %}
-              <button type="submit" style="background: none; border: none; color: #fff; text-decoration: underline; cursor: pointer;">
+              <button type="submit" style="background: none; border: 1px; color: #fff; cursor: pointer;">
                 Logout
               </button>
             </form>

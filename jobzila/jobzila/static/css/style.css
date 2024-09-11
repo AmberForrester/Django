@@ -1,18 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-body,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul,
-dl,
-blockquote,
-pre {
+* {
   margin: 0;
   padding: 0;
 }
@@ -24,49 +10,43 @@ body {
   color: #333;
 }
 
-/* Header and navigation styling */
-header,
-nav,
-section,
-aside,
-footer {
-  display: block;
-}
 
+
+/* Header and Nav Bar styling */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
 }
 
 header h1 {
-  margin: 0;
+    margin: 0;
 }
 
 nav {
-  background-color: #ff8500;
-  color: #fff;
-  padding: 10px;
-  display: flex !important; /* Use flexbox to manage layout */
-  justify-content: space-between; /* Distribute space between left and right content */
-  align-items: center; /* Vertically align items in the middle */
+
+    background-color: #ff8500;
+    color: #fff;
+    padding: 10px;
+    display: flex !important; /* Use flexbox to manage layout */
+    justify-content: space-between; /* Distribute space between left and right content */
+    align-items: center; /* Vertically align items in the middle */
 }
 
-/* Styles for the left side of the navbar */
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+list-style: none;
 }
 
 nav ul li {
-  display: inline;
-  margin-right: 20px;
+
+    display: inline;
+    margin-right: 20px;
 }
 
 nav ul li a {
-  color: #fff;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 /* New: Style for the right-aligned Login/Logout button */
@@ -81,6 +61,7 @@ nav ul li a {
 .navbar-right a {
   color: #fff !important;
   text-decoration: none !important;
+  text-size: 10px;
   padding: 10px 20px !important;
   background-color: #007bff !important; /* Optional: Button-like appearance */
   border-radius: 5px !important;
@@ -89,19 +70,27 @@ nav ul li a {
 .navbar-right a:hover {
   background-color: #0056b3 !important;
 }
+/* Header and Nav Bar Finished */
 
+
+
+/* Footer styling */
 footer {
   background-color: #333;
   color: #fff;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
 footer p a {
-  color: #ff8500;
+  color: #f7df04;
   text-decoration: none;
 }
+/* Footer Finished */
 
+
+
+/* Hero styling */
 #hero {
   background-size: cover;
   background-image: url("../images/jobZilaMain.jpg");
@@ -112,44 +101,94 @@ footer p a {
   text-align: center;
   color: #eaaa82;
 }
+
 #hero-section {
   text-align: center;
   margin-top: 100px;
 }
-#privacy-section {
-  text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 30px;
-}
 
-#terms-section {
-  text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 30px;
-}
 #hero-section h2 {
-  color: #ff8500;
-  font-size: 36px;
+  color: #a599d1;
+  font-size: 40px;
   margin-bottom: 20px;
 }
+/* Hero Finished */
 
+
+
+/* Vission Statement styling */
 .vission-statment {
   font-size: 18px;
   max-width: 800px;
   margin: 0 auto;
   color: rgb(216, 216, 233);
 }
+/* Vission Statement Finished */
 
-/*
-main {
-  /*padding: 20px;*/
-/* background-color: #333;
+
+
+/* Privacy Policy styling */
+#privacy-section {
+  padding: 20px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
 }
-*/
+
+#privacy-section h2 {
+  margin-bottom: 10px;
+}
+
+.privacy-policy {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+/* Privacy Policy Finished */
+
+
+
+/* Terms Styling */
+#terms-section {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+#terms-section h2 {
+  margin-bottom: 10px;
+}
+
+.terms-listing {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.term-div {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+/* Terms Finished */
+
+
+
+/* Job Listing Page Styling */
+.joblist-div {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
 
 #job-listings {
   padding: 20px;
@@ -158,6 +197,7 @@ main {
 #job-listings h2 {
   margin-bottom: 10px;
 }
+
 .job-listing {
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -173,30 +213,9 @@ main {
   margin-bottom: 10px;
 }
 
-#terms-section h2 {
-  margin-bottom: 10px;
-}
 
-.terms-listing {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-}
 
-#privacy-section h2 {
-  margin-bottom: 10px;
-}
-
-.privacy-policy {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-/* Contact Us Form CSS Start*/
-
+/* Contact Form Styling */
 #contact-form-section {
   padding: 20px;
 }
@@ -227,13 +246,16 @@ main {
   margin-top: 50px;
   border: none;
 }
+
 .form-div {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
 }
-/* Contact Us Form CSS Finished*/
+/* Contact Form Finished */
+
+
 
 /* Job Search Form CSS Start*/
 
@@ -275,8 +297,9 @@ main {
 }
 /* Job Search Form CSS Finished*/
 
-/* Add Job Form CSS Start*/
 
+
+/* Add Job Form CSS Start*/
 #add-form-section {
   padding: 20px;
 }
@@ -316,19 +339,20 @@ main {
 }
 /* Add Job Form CSS Finished*/
 
+
+
 /* Blog CSS Start*/
 
-#blog-section {
+/* Blog Listings Styling - Matches Job Listings */
+/* Blog Listings Styling (Same as Job Listings) */
+#blog-listings {
   padding: 20px;
-}
-
-#blog-section h2 {
-  margin-bottom: 10px;
 }
 
 #blog-listings h2 {
   margin-bottom: 10px;
 }
+
 .blog-listing {
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -343,35 +367,26 @@ main {
 .blog-listing p {
   margin-bottom: 10px;
 }
+/* Blog CSS Finished */
 
 
-#blog-form {
-  background-color: #ffffff;
+
+/* Blog Detail Styling (Same as Blog and Job Listings) */
+#blog-detail {
   padding: 20px;
 }
 
-#blog-form input,
-#blog-form textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #cccccc;
-  resize: vertical;
-}
-
-#blog-form input[type="submit"] {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 15px;
-  margin-top: 50px;
-  border: none;
-}
-
-.form-div {
+.blog-listing div {
   margin-bottom: 20px;
   border: 1px solid #ccc;
-  padding: 20px;
   border-radius: 5px;
+  padding: 20px;
 }
-/* Blog CSS Finished */
+
+.blog-listing h2 {
+  margin-bottom: 10px;
+}
+
+.blog-listing p {
+  margin-bottom: 10px;
+}

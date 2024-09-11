@@ -8,10 +8,16 @@
 {% endblock %}
 
 {% block content %}
-<section id="blog-section">
-  <h2>{{ blog.title }}</h2>
-  <p><strong>By {{ blog.author }}</strong> on {{ blog.created_at }}</p>
-  <p>{{ blog.content }}</p>
-  <a href="{% url 'blog_list' %}">Back to Blogs</a>
+<main>
+<section id="blog-detail" class="container"> <!-- Use 'container' class here too for consistent layout -->
+
+  <div class="blog-listing">
+    <h2>{{ blog.title }}</h2>
+    <p><strong>By {{ blog.author }}</strong> on {{ blog.created_at }}</p>
+    <p>{{ blog.content }}</p> <!-- Full blog content -->
+    <a href="{% url 'blog_list' %}">Back to Blogs</a>
+  </div>
+
 </section>
+</main>
 {% endblock %}

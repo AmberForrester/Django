@@ -12,8 +12,11 @@ Job Listings
 {% block content %}
 <main>
 <section id="job-listings" class="container">
+
   <h2>Job Listings</h2>
+
   <div id="job-listings-container">
+    
     {% for job in jobs %}
       <div class="job-listing">
         <h3>{{ job.title }}</h3>
@@ -22,11 +25,12 @@ Job Listings
         <p>{{ job.description }}</p>
         <a href="{{ job.apply_link }}" target="_blank">Apply Now</a>
       </div>
-      
+
     {% empty %}
       <p>No job listings available.</p>
     {% endfor %}
   </div>
+
 </section>
 </main>
 {% endblock %}
