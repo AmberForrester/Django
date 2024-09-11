@@ -326,6 +326,25 @@ main {
   margin-bottom: 10px;
 }
 
+#blog-listings h2 {
+  margin-bottom: 10px;
+}
+.blog-listing {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.blog-listing h3 {
+  margin-bottom: 10px;
+}
+
+.blog-listing p {
+  margin-bottom: 10px;
+}
+
+
 #blog-form {
   background-color: #ffffff;
   padding: 20px;

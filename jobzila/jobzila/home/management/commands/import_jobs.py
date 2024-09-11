@@ -26,3 +26,8 @@ class Command(BaseCommand):
             )
         
         self.stdout.write(self.style.SUCCESS('Successfully loaded job listings from the JSON file.'))
+        
+# Script created to read the joblistings.json file and insert the job listings into the Job model. 
+
+# After you’ve created the command, run it in your terminal (with the virtual environment activated): python manage.py import_jobs
+# This will automatically load all job listings from the joblistings.json file into your Django database.

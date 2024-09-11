@@ -18,7 +18,7 @@ urlpatterns = [
     path('blogs/<int:blog_id>/', views.blog_detail, name='blog_detail'),
     path('blogs/add/', views.add_blog, name='add_blog'),
     path('accounts/login/', LoginView.as_view(), name='login'), # Map the /accounts/login/ URL to Django's built-in LoginView. 
-    path('accounts/logout/', LogoutView.as_view(), name='logout'),
+    path('accounts/logout/', LogoutView.as_view(next_page='homepage'), name='logout'),
 ]
     
     

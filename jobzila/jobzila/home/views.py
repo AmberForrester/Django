@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Job, Blog
 from .forms import BlogForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # Create your views here.
 
@@ -47,29 +48,26 @@ def job_search(request):
     # Get the search parameters for keywords, location, and category:
     keywords = request.GET.get('keywords', '').strip()
     location = request.GET.get('location', '').strip()
-    category = request.GET.get('category', '').strip()
+    category = request.GET.get('category', '').strip()  # Now treated as a keyword for title and description search
     
     # Initialize an empty list for jobs:
-    jobs = []
+    jobs = Job.objects.all()
     
     # Check if a search query has been made( when keywords, location, or category is provided)
     search = any([keywords, location, category])
     
     if search:
-        # Build the job filter based on the search query:
-        jobs = Job.objects.all()
-        
         # Filter by keywords in title or description, if provided
         if keywords:
-            jobs = jobs.filter(title__icontains=keywords) | jobs.filter(description__icontains=keywords)
-            
+            jobs = jobs.filter(Q(title__icontains=keywords) | Q(description__icontains=keywords))
+        
         # Filter by location, if provided
         if location:
             jobs = jobs.filter(location__icontains=location)
 
-        # Filter by category, if provided
+        # Treat the selected category as an additional keyword to search in both title and description
         if category:
-            jobs = jobs.filter(category__icontains=category)
+            jobs = jobs.filter(Q(title__icontains=category) | Q(description__icontains=category))
 
      # Render the jobsearch.html template and pass the jobs and search parameters
     return render(request, 'home/jobsearch.html', {

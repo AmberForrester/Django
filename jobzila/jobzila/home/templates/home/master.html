@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}Jobzila{% endblock %}</title>
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
@@ -15,7 +16,9 @@
   <body>
     
     <header>
+
       <h1>Job Zila</h1>
+      
       <nav>
         <ul>
           <li><a href="{% url 'homepage' %}">Home</a></li>
@@ -29,9 +32,19 @@
 
         <!-- Login/Logout Button on the Far Right -->
         <ul class="navbar-right">
+
+          <!-- Use a form to submit a POST request for logout -->
           {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li> <!-- Logout link for authenticated users -->
-          {% else %}
+          <li>
+            <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" style="background: none; border: none; color: #fff; text-decoration: underline; cursor: pointer;">
+                Logout
+              </button>
+            </form>
+          </li> <!-- Logout link for authenticated users -->
+          {% else %} 
+
             <li><a href="{% url 'login' %}">Login</a></li> <!-- Login link for unauthenticated users -->
           {% endif %}
         </ul>

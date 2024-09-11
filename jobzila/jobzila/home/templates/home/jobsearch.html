@@ -31,28 +31,39 @@ Job Search
           value="{{ request.GET.location|default:'' }}"/>
 
         <select name="category" id="category">
+
           <option value="">All Categories</option>
-          <option value="it" {% if request.GET.category == "it" %}selected{% endif %}>IT</option>
-          <option value="finance" {% if request.GET.category == "finance" %}selected{% endif %}>Finance</option>
-          <option value="marketing" {% if request.GET.category == "marketing" %}selected{% endif %}>Marketing</option>
+
           <option value="data" {% if request.GET.category == "marketing" %}selected{% endif %}>Data</option>
+
+          <option value="developer" {% if request.GET.category == "marketing" %}selected{% endif %}>Developer</option>
+
+          <option value="software" {% if request.GET.category == "it" %}selected{% endif %}>Engineering</option>
+
+          <option value="finance" {% if request.GET.category == "finance" %}selected{% endif %}>Finance</option>
+
+          <option value="marketing" {% if request.GET.category == "marketing" %}selected{% endif %}>Marketing</option>
+
           <option value="UI/UX" {% if request.GET.category == "marketing" %}selected{% endif %}>UI/UX</option>
+
           <!-- Add more categories as needed -->
         </select>
+        
         <input type="submit" value="Search Jobs" />
       </form>
     </div>
   </section>
 
   <!-- Displaying search results dynamically -->
-  <section id="job-results-section">
+  <section id="job-listings"
+  class="container">
     {% if search %}
       {% if jobs %}
-        <h3>Search Results:</h3>
+        <h2>Search Results:</h2>
         <div id="job-listings-container">
           {% for job in jobs %}
             <div class="job-listing">
-              <h4>{{ job.title }}</h4>
+              <h3>{{ job.title }}</h3>
               <p><strong>Company:</strong> {{ job.company }}</p>
               <p><strong>Location:</strong> {{ job.location }}</p>
               <p><strong>Description:</strong> {{ job.description }}</p>
