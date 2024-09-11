@@ -13,25 +13,25 @@ Example:<br/>
 /named_venv_folder/<br/>
     |-- /your_project/          ***Root Folder of the Django project***<br/>
     |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- __init__.py     ***Makes this a Python package***<br/>
-    |       |-- settings.py     ***Project level settings***  <br/>
-    |       |-- urls.py         ***Project level URL configurations***<br/>
-    |       |-- wsgi.py         ***WSGI entry point for production servers***<br/>
-    |       |-- asgi.py         ***ASGI entry point for async handling***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- settings.py     ***Project level settings***  <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- urls.py         ***Project level URL configurations***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- wsgi.py         ***WSGI entry point for production servers***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- asgi.py         ***ASGI entry point for async handling***<br/>
     |<br/>
     |<br/>
     |<br/>
     |-- /apps/   ***Custom folder for your apps (if you have multiple apps)<br/>
-    |       |-- /app_name/              ***Individual Django App***<br/>
-    |       |       |-- migrations/     ***Database migration files***<br/>
-    |       |       |-- templates/      ***App specific templates***<br/>
-    |       |       |-- static/         ***App specific static files (CSS, JS, favicon, images)***<br/>
-    |       |       |-- admin.py/       ***App admin panel configuartion***<br/>
-    |       |       |-- apps.py/        ***App configuration***<br/>
-    |       |       |-- models.py/      ***Database models***<br/>
-    |       |       |-- urls.py/        ***App specific URLs***<br/>
-    |       |       |-- views.py/       ***Views handling logic***<br/>
-    |       |       |-- forms.py/       ***Forms related to the App***<br/>
-    |       |       |-- tests.py/       ***Tests related to the App***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- /app_name/              ***Individual Django App***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|       |-- migrations/     ***Database migration files***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|       |-- templates/      ***App specific templates***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|       |-- static/         ***App specific static files (CSS, JS, favicon, images)***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- admin.py/       ***App admin panel configuartion***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- apps.py/        ***App configuration***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- models.py/      ***Database models***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- urls.py/        ***App specific URLs***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- views.py/       ***Views handling logic***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- forms.py/       ***Forms related to the App***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- tests.py/       ***Tests related to the App***<br/>
     |<br/>
     |<br/>
     |<br/>
@@ -52,10 +52,10 @@ Making it easier to manage many apps.
 
 Example:<br/>
 /your_project/<br/>
-    |-- /apps/<br/>
-            |-- blog/<br/>
-            |-- accounts/<br/>
-            |-- joblistings/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- /apps/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- blog/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- accounts/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- joblistings/<br/>
 
 2. ### Move static files to app-specific folders:
 For each app, create a `/static/` folder within the app directory and move the static files (CSS, JS, images) that are related to that app into this folder. 
@@ -82,9 +82,9 @@ If your project grows, you can split the `settings.py` file into multiple files,
 
 Example:<br/>
 /your_project/settings/<br/>
-    |-- base.py<br/>
-    |-- dev.py<br/>
-    |-- prod.py<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- base.py<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- dev.py<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- prod.py<br/>
 
 6. ### Forms and Tests:
 If you are using forms and writing tests, keep `forms.py` and `tests.py` inside each app directory to encapsulate the logic for that app. 
