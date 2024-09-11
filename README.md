@@ -12,7 +12,7 @@ Keeping in mind Django's best practices, this will help make a Django project mo
 Example:<br/>
 /named_venv_folder/<br/>
     |-- /your_project/          ***Root Folder of the Django project***<br/>
-    |&nbsp;&nbsp;&nbsp;&nbsp;|-- __init__.py     ***Makes this a Python package***<br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- __init__.py     ***Makes this a Python package***<br/>
     |       |-- settings.py     ***Project level settings***  <br/>
     |       |-- urls.py         ***Project level URL configurations***<br/>
     |       |-- wsgi.py         ***WSGI entry point for production servers***<br/>
