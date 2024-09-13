@@ -27,6 +27,7 @@ admin.site.register(Blog, BlogAdmin)
 
 
 # Register the ContactSubmission model with additional admin options:
+@admin.register(ContactSubmission)
 class ContactSubmissionAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'submitted_at')
     list_filter = ('submitted_at',)

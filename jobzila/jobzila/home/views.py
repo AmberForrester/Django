@@ -28,9 +28,9 @@ def contact_us(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         
-        # Save the contact form data to the DB:
-        contact = ContactSubmission(name=name, email=email, message=message)
-        contact.save()
+        # Save the form data to the database
+        contact_submission = ContactSubmission(name=name, email=email, message=message)
+        contact_submission.save()  # Make sure the form is actually being saved
         
         # Send an email to the Admin:
         send_mail(
@@ -232,5 +232,5 @@ def delete_blog(request, blog_id):
 @login_required
 @admin_required
 def view_contact_form(request):
-    contact_forms = ContactSubmission.objects.all()
-    return render(request, 'home/view_contact_form.html', {'contact_forms': contact_forms})
+    contact_forms = ContactSubmission.objects.all() # Fetch all contact form submissions from the DB
+    return render(request, 'home/view_contact_form.html',{'contact_forms': contact_forms})
