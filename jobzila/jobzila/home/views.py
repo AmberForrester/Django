@@ -121,17 +121,22 @@ def admin_required(function=None):
         return actual_decorator(function)
     return actual_decorator
 
-
-
 # Custom Admin Dashboard View:
+# Only logged-in superusers(admins) can access the Admin Dashboard
 @login_required
-@admin_required
+@user_passes_test(admin_required)
 def admin_dashboard(request):
     return render(request, 'home/admin_dashboard.html') 
 
+# Redirect admins to the dashboard upon login:
+def login_sucess(request):
+    if request.user.is_superuser: # If the user is an Admin
+        return redirect('admin_dashboard')
+    else:
+        return redirect('job_listings') # Regular users go to homepage
 
 
-    
+ 
 # MANAGE JOBS - only for admin: 
 @login_required
 @admin_required
@@ -222,3 +227,10 @@ def delete_blog(request, blog_id):
     blog = get_object_or_404(Blog, id=blog_id)
     blog.delete()
     return redirect('manage_blogs')
+
+# View contact form submissions:
+@login_required
+@admin_required
+def view_contact_form(request):
+    contact_forms = ContactSubmission.objects.all()
+    return render(request, 'home/view_contact_form.html', {'contact_forms': contact_forms})

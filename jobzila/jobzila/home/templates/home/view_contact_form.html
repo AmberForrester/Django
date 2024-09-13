@@ -7,10 +7,10 @@
   <section id="view-contacts">
     <h2>Contact Form Submissions</h2>
     <ul>
-      {% for submission in submissions %}
+      {% for contact_form in contact_form %}
         <li>
-          <strong>{{ submission.name }}</strong> ({{ submission.email }}) - {{ submission.message }}
-          <p><small>Submitted on {{ submission.submitted_at }}</small></p>
+          <strong>{{ contact_form.name }}</strong> ({{ contact_form.email }}) - {{ contact_form.message }}
+          <p><small>Submitted on {{ contact_form.submitted_at }}</small></p>
         </li>
       {% endfor %}
     </ul>

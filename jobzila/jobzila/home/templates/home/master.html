@@ -33,6 +33,11 @@
         <!-- Login/Logout Button on the Far Right -->
         <ul class="navbar-right">
 
+          <!-- Only show the admin dashboard link if the user is a superuser -->
+          {% if user.is_superuser %}
+          <li><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+          {% endif %}
+
           <!-- Use a form to submit a POST request for logout -->
           {% if user.is_authenticated %}
           <li>

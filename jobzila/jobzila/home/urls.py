@@ -19,6 +19,7 @@ urlpatterns = [
     
     # ADMIN only views for Jobs
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('view-contact-form', views.view_contact_form, name='view_contact_form'),
     path('manage-jobs/', views.manage_jobs, name='manage_jobs'),
     path('jobs/add/', views.add_job, name='add_job'),
     path('jobs/edit/<int:job_id>/', views.edit_job, name='edit_job'),
@@ -33,6 +34,8 @@ urlpatterns = [
     # Authentication URLs
     path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page='homepage'), name='logout'),
+    path('login/success/', views.login_sucess, name='login_success'),
+    
 ]
     
     
