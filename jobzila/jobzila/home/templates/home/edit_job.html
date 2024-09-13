@@ -1,0 +1,30 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Edit Job{% endblock %}
+
+{% block content %}
+<main>
+  <section id="edit-job">
+    <h2>Edit Job</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" value="{{ job.title }}" required>
+
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" value="{{ job.company }}" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" value="{{ job.location }}" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" required>{{ job.description }}</textarea>
+
+      <label for="apply_link">Apply Link</label>
+      <input type="url" id="apply_link" name="apply_link" value="{{ job.apply_link }}" required>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </section>
+</main>
+{% endblock %}

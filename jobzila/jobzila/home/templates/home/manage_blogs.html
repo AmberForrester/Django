@@ -1,0 +1,26 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Manage Blogs{% endblock %}
+
+{% block content %}
+
+<main>
+    <section>
+
+        <h2>Manage Blogs</h2>
+
+        <a href="{% url 'add_blog' %}">Add Blog</a>
+
+        <ul>
+            {% for blog in blogs %}
+        <li>
+            {{ blog.title }} by {{ blog.author }}
+            <a href="{% url 'edit_blog' blog.id %}">Edit</a>
+            <a href="{% url 'delete_blog' blog.id %}">Delete</a>
+        </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+
+{% endblock %}

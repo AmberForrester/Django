@@ -16,8 +16,22 @@ urlpatterns = [
     path('jobsearch', views.job_search, name='job_search'),
     path('blogs/', views.blog_list, name='blog_list'),
     path('blogs/<int:blog_id>/', views.blog_detail, name='blog_detail'),
+    
+    # ADMIN only views for Jobs
+    path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('manage-jobs/', views.manage_jobs, name='manage_jobs'),
+    path('jobs/add/', views.add_job, name='add_job'),
+    path('jobs/edit/<int:job_id>/', views.edit_job, name='edit_job'),
+    path('jobs/delete/<int:job_id>/', views.delete_job, name='delete_job'),
+    
+    # ADMIN only views for Blogs
+    path('manage-blogs/', views.manage_blogs, name='manage_blogs'),
     path('blogs/add/', views.add_blog, name='add_blog'),
-    path('accounts/login/', LoginView.as_view(), name='login'), # Map the /accounts/login/ URL to Django's built-in LoginView. 
+    path('blogs/edit/<int:blog_id>/', views.edit_blog, name='edit_blog'),
+    path('blogs/delete/<int:blog_id>/', views.delete_blog, name='delete_blog'),
+    
+    # Authentication URLs
+    path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page='homepage'), name='logout'),
 ]
     

@@ -1,0 +1,26 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Manage Jobs{% endblock %}
+
+{% block content %}
+
+<main>
+  
+  <section id="manage-jobs">
+
+    <h2>Manage Jobs</h2>
+
+    <a href="{% url 'add_job' %}">Add Job</a>
+    
+    <ul>
+      {% for job in jobs %}
+        <li>
+          <strong>{{ job.title }}</strong> - {{ job.company }}
+          <a href="{% url 'edit_job' job.id %}">Edit</a>
+          <a href="{% url 'delete_job' job.id %}">Delete</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+{% endblock %}

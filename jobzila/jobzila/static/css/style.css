@@ -433,3 +433,34 @@ footer p a {
   border-radius: 5px;
 }
 /* Login Finished */
+
+
+
+/* Admin Dashboard Styling */
+#dashboard {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+#dashboard h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+#dashboard div {
+  margin-bottom: 20px;
+}
+
+#dashboard a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff8500;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#dashboard a:hover {
+  background-color: #e07b00;
+}
+/* Admin Dashboard Styling Finished */

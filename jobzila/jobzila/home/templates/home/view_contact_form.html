@@ -1,0 +1,19 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Contact Submissions{% endblock %}
+
+{% block content %}
+<main>
+  <section id="view-contacts">
+    <h2>Contact Form Submissions</h2>
+    <ul>
+      {% for submission in submissions %}
+        <li>
+          <strong>{{ submission.name }}</strong> ({{ submission.email }}) - {{ submission.message }}
+          <p><small>Submitted on {{ submission.submitted_at }}</small></p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+{% endblock %}

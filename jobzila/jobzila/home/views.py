@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
 
 
 
@@ -98,7 +99,9 @@ def job_search(request):
         'category': category,
         'search': search  # Pass this to the template to control result display
     })
-
+    
+    
+    
 # View to display a list of all blogs:
 def blog_list(request):
     blogs = Blog.objects.all().order_by('-created_at')
@@ -107,10 +110,88 @@ def blog_list(request):
 # View to display a specific blog post by its ID:
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, id=blog_id)
-    return render(request, 'home/blog_detail.html', {'blog': blog})
+    return render(request, 'home/blog_detail.html', {'blog': blog})    
+    
 
-# View to add a new blog (for admin):
+
+# Custom decorator to check if user is an admin only:
+def admin_required(function=None):
+    actual_decorator = user_passes_test(lambda u: u.is_superuser)
+    if function:
+        return actual_decorator(function)
+    return actual_decorator
+
+
+
+# Custom Admin Dashboard View:
 @login_required
+@admin_required
+def admin_dashboard(request):
+    return render(request, 'home/admin_dashboard.html') 
+
+
+
+    
+# MANAGE JOBS - only for admin: 
+@login_required
+@admin_required
+def manage_jobs(request):
+    jobs = Job.objects.all()
+    return render(request, 'home/manage_jobs.html', {'jobs': jobs})
+
+# Add Jobs - only for admin:
+@login_required
+@admin_required
+def add_job(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        company = request.POST['company']
+        location = request.POST['location']
+        description = request.POST['description']
+        apply_link = request.POST['apply_link']
+
+        job = Job(title=title, company=company, location=location, description=description, apply_link=apply_link)
+        job.save()
+        return redirect('manage_jobs')
+
+    return render(request, 'home/add_job.html') 
+
+# Edit Jobs - only for admin:
+@login_required
+@admin_required
+def edit_job(request, job_id):
+    job = get_object_or_404(Job, id=job_id)
+    if request.method == 'POST':
+        job.title = request.POST['title']
+        job.company = request.POST['company']
+        job.location = request.POST['location']
+        job.description = request.POST['description']
+        job.apply_link = request.POST['apply_link']
+        job.save()
+        return redirect('manage_jobs')
+    
+    return render(request, 'home/edit_job.html', {'job': job})
+
+# Delete Jobs - only for admin:
+@login_required
+@admin_required
+def delete_job(request, job_id):
+    job = get_object_or_404(Job, id=job_id)
+    job.delete()
+    return redirect('manage_jobs')
+
+
+
+# MANAGE BLOGS - only for admin:
+@login_required
+@admin_required
+def manage_blogs(request):
+    blogs = Blog.objects.all()
+    return render(request, 'home/manage_blogs.html', {'blogs': blogs})
+
+# Add blogs - only for admin:
+@login_required
+@admin_required
 def add_blog(request):
     if request.method == 'POST':
         form = BlogForm(request.POST)
@@ -118,9 +199,26 @@ def add_blog(request):
             blog = form.save(commit=False)
             blog.author = request.user
             blog.save()
-            return redirect('blog_list')
-    
-    else: 
-        form = BlogForm()
+            return redirect('manage_blogs')
+
+    form = BlogForm()
     return render(request, 'home/add_blog.html', {'form': form})
 
+# Edit blogs - only for admin: 
+def edit_blog(request, blog_id):
+    blog = get_object_or_404(Blog, id=blog_id)
+    if request.method == 'POST':
+        blog.title = request.POST['title']
+        blog.content = request.POST['content']
+        blog.save()
+        return redirect('manage_blogs')
+    
+    return render(request, 'home/edit_blog.html', {'blog': blog})
+
+# Delete blogs - only for admin:
+@login_required
+@admin_required
+def delete_blog(request, blog_id):
+    blog = get_object_or_404(Blog, id=blog_id)
+    blog.delete()
+    return redirect('manage_blogs')

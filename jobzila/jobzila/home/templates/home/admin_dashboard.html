@@ -1,0 +1,25 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<main>
+  <section id="dashboard">
+    <h2>Admin Dashboard</h2>
+    <div>
+      <h3>Manage Jobs</h3>
+      <a href="{% url 'add_job' %}">Add Job</a>
+      <a href="{% url 'manage_jobs' %}">Manage Jobs</a>
+    </div>
+    <div>
+      <h3>Manage Blogs</h3>
+      <a href="{% url 'add_blog' %}">Add Blog</a>
+      <a href="{% url 'manage_blogs' %}">Manage Blogs</a>
+    </div>
+    <div>
+      <h3>Contact Form Submissions</h3>
+      <a href="{% url 'view_contact_form' %}">View Submissions</a>
+    </div>
+  </section>
+</main>
+{% endblock %}

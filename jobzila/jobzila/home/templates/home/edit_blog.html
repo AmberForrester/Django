@@ -1,0 +1,21 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block content %}
+<main>
+  <section id="edit-blog">
+    <h2>Edit Blog</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="title">Blog Title</label>
+      <input type="text" id="title" name="title" value="{{ blog.title }}" required>
+
+      <label for="content">Content</label>
+      <textarea id="content" name="content" rows="5" required>{{ blog.content }}</textarea>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </section>
+</main>
+{% endblock %}

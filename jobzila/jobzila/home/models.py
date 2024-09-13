@@ -12,18 +12,32 @@ class Job(models.Model):
     location = models.CharField(max_length=255)
     description = models.TextField()
     apply_link = models.URLField()
+    
+    # Add timestamps to track when jobs are posted and updated and by who:
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    # Meta class added to order jobs in order of creation date:
+    # Jobs ordered by newest first.
+    class Meta:
+        ordering = ['-created_at'] 
 
     def __str__(self):
         return self.title
     
     
-    
+ 
 # Create a new Blog model to store blog posts: 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    # Meta class added to order blogs in order of creation date:
+    # Blogs ordered by newest first.
+    class Meta:
+        ordering = ['-created_at'] 
 
     def __str__(self):
         return self.title

@@ -1,0 +1,30 @@
+{% extends 'home/master.html' %}
+
+{% block title %}Add Job{% endblock %}
+
+{% block content %}
+<main>
+  <section id="add-job">
+    <h2>Add a New Job</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" required>
+      
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" required>
+      
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" required>
+      
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" required></textarea>
+      
+      <label for="apply_link">Apply Link</label>
+      <input type="url" id="apply_link" name="apply_link" required>
+
+      <button type="submit">Add Job</button>
+    </form>
+  </section>
+</main>
+{% endblock %}
