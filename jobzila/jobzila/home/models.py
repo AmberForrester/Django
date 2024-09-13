@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 # Store Job Data in a Django Model: storing the job listings in a DB using Django's ORM. Then fetch and display the data in HTML template. 
-# Create a Django Model to represent the job listings. 
+# Create a Django Model to represent the job listings: 
 class Job(models.Model):
     title = models.CharField(max_length=255)
     company = models.CharField(max_length=255)
@@ -18,7 +18,7 @@ class Job(models.Model):
     
     
     
-# Create a new Blog model to store blog posts. 
+# Create a new Blog model to store blog posts: 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -27,3 +27,15 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+# Define a model for the contact form in models.py:
+class ContactSubmission(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'Message from {self.name} ({self.email})'

@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Job, Blog
+from .models import Job, Blog, ContactSubmission
 from .forms import BlogForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
-# Create your views here.
 
 
 # Created a simple function that returns a homepage response:
@@ -18,17 +20,36 @@ def homepage(request):
 def contact_us(request):
     
     # Handling form submission - if you want to process the form (ex. send an email or save the data), youll need to update the function here. 
-    # For now let us diplay a success message when the form is submitted: 
+    # Get form data from the POST request:
     if request.method == 'POST':
         # Here you can process the form (e.g., save the data or send an email)
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
         
-        # Return simple success message:
-        return HttpResponse(f'Thanks for reaching out, {name}! We will get back to you within 24 hours.')
+        # Save the contact form data to the DB:
+        contact = ContactSubmission(name=name, email=email, message=message)
+        contact.save()
+        
+        # Send an email to the Admin:
+        send_mail(
+            subject=f'New Contact Form Submission From {name}',
+            message=f'You have received a new message from {name} ({email}).\n\nMessage:\n{message}',
+            from_email=settings.DEFAULT_FROM_EMAIL, # From Email (must be set in settings.py)
+            recipient_list=[settings.ADMIN_EMAIL], # Admin email address
+            fail_silently=False,
+        )
+        
+        # Show a success message to the user:
+        messages.success(request, 'Thank you for your message. We will get back to you within 24 hours. Have a great day, we look forward to speaking with you.')
+        
+        # Return to a Thank-You page or back to the form: 
+        return redirect('contact_us')
     
+    # If the request is GET, just display the contact form:
     return render(request, 'home/contactus.html')
+
+
 
 # Create a view that fetches the job listigs from the DB and passes them to a template:
 def job_listings(request):

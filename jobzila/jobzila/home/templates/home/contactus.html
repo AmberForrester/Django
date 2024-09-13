@@ -17,7 +17,7 @@ Contact Us
       <section id="contact-form-section">
         <h2>Contact Form</h2>
         <div class="form-div">
-          <form id="contact-form" action="" method="post">
+          <form id="contact-form" action="{% url 'contact_us' %}" method="post">
 
             {% csrf_token %} {% comment %} Django security token for forms {% endcomment %}
             <label for="name">Name</label>

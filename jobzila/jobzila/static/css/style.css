@@ -59,12 +59,13 @@ nav ul li a {
 }
 
 .navbar-right a {
-  color: #fff !important;
+  color: #ffffff !important;
   text-decoration: none !important;
-  text-size: 10px;
-  padding: 10px 20px !important;
-  background-color: #007bff !important; /* Optional: Button-like appearance */
+  text-size: 16px;
+  padding: 10px 10px !important;
+  background-color: #333 !important; /* Optional: Button-like appearance */
   border-radius: 5px !important;
+  cursor: pointer;
 }
 
 .navbar-right a:hover {
@@ -83,7 +84,7 @@ footer {
 }
 
 footer p a {
-  color: #ff8500;
+  color: #ff8500 !important;
   text-decoration: none;
 }
 /* Footer Finished */
