@@ -35,7 +35,6 @@ urlpatterns = [
     path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page='homepage'), name='logout'),
     path('login/success/', views.login_sucess, name='login_success'),
-    
 ]
     
     
