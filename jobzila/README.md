@@ -87,7 +87,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 6. **Run the Django Development Server** Start the server to view the project in your browser:
     ```bash
-    pythong manage.py runserver
+    python manage.py runserver
     ```
 
 7. **Visit the Application** Open your browser and visit:
