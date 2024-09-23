@@ -68,7 +68,7 @@ Welcome to JobZila, a Django-based job search application where users can search
     pip install -r requirements.txt
     ```
 
-4. **Apply Migrations to Set Up the Databse** Run the following commands to set up the database:
+4. **Apply Migrations to Set Up the Database** Run the following commands to set up the database:
     ```bash
     python manage.py makemigrations
     python manage.py migrate
