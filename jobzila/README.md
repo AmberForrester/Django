@@ -92,7 +92,7 @@ Welcome to JobZila, a Django-based job search application where users can search
 
 7. **Visit the Application** Open your browser and visit:
     - **Application**: `http://127.0.0.1:8000/`
-    - **Django Admin**: `http://127.0.0.1:8000/`
+    - **Django Admin**: `http://127.0.0.1:8000/admin`
 
 <p align="right">(<a href="#readme-top">top of page</a>)</p>
 
