@@ -41,17 +41,12 @@
           <!-- Use a form to submit a POST request for logout -->
           {% if user.is_authenticated %}
           <li>
-            <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+            <!-- Anchor tag for consistent styling -->
+              <a href="{% url 'logout' %}" class="nav-button" id="logout-link">Logout</a>
+
+            <!-- Hidden form for logout -->
+              <form method="POST" action="{% url 'logout' %}" id="logout-form" style="display: none;">
               {% csrf_token %}
-              <button type="submit" style="color: #ffffff !important;
-              text-decoration: none !important;
-              text-size: 16px;
-              padding: 10px 20px !important;
-              background-color: #333 !important;
-              border-radius: 5px !important;
-              cursor: pointer;">
-                Logout
-              </button>
             </form>
           </li> <!-- Logout link for authenticated users -->
           {% else %} 
@@ -78,5 +73,12 @@
       </p>
     </footer>
 
+
+<script>
+  document.getElementById('logout-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor behavior
+    document.getElementById('logout-form').submit(); // Submit the form programmatically
+  });
+</script>
   </body>
 </html>
