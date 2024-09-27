@@ -128,7 +128,7 @@ def admin_dashboard(request):
     return render(request, 'home/admin_dashboard.html') 
 
 # Redirect admins to the dashboard upon login:
-def login_sucess(request):
+def login_success(request):
     if request.user.is_superuser: # If the user is an Admin
         return redirect('admin_dashboard')
     else:
